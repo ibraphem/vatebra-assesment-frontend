@@ -31,7 +31,7 @@ const QuestionOne = () => {
 
   useEffect(() => {
     dispatch(updateCalendar());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Layout>
