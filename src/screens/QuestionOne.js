@@ -12,7 +12,6 @@ import { useStyles } from "../theme/style";
 import { Button, Grid, Modal } from "@material-ui/core";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import AddIcon from "@material-ui/icons/Add";
-import QuestionFive from "./QuestionFive";
 import AddTaskModal from "../components/modals/AddTaskModal";
 
 const QuestionOne = () => {

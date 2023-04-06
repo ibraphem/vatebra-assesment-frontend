@@ -21,13 +21,15 @@ const QuestionThree = () => {
 
   const autoCompleteRef = useRef();
   const inputRef = useRef();
-  const options = {
-    componentRestrictions: { country: "ng" },
-    fields: ["address_components", "geometry", "icon", "name"],
-    types: ["address"],
-  };
+
 
   useEffect(() => {
+    const options = {
+      componentRestrictions: { country: "ng" },
+      fields: ["address_components", "geometry", "icon", "name"],
+      types: ["address"],
+    };
+
     autoCompleteRef.current = new window.google.maps.places.Autocomplete(
       inputRef.current,
       options
@@ -39,6 +41,8 @@ const QuestionThree = () => {
       setAddress(`${place.address_components[0]?.long_name}, ${place.address_components[1]?.long_name}`)
     });
   }, []);
+
+
 
   const closeMarkerDetails = () => {
     setMarkerDetails(false);

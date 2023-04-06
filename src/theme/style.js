@@ -94,9 +94,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     loginRoot: {
       height: "100vh",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      backgroundSize: "cover",
+      // backgroundRepeat: "no-repeat",
+      // backgroundPosition: "center",
+      // backgroundSize: "cover",
       backgroundColor:
         theme.palette.type === "light"
           ? theme.palette.grey[50]
@@ -104,7 +104,8 @@ export const useStyles = makeStyles((theme) => ({
   
       display: "flex",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
+      // margin: 10
     },
     size: {
       display: "flex",
