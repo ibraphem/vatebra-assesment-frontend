@@ -9,16 +9,14 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import { useStyles } from "../theme/style";
-import { Button, Grid, Modal } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import AddIcon from "@material-ui/icons/Add";
-import AddTaskModal from "../components/modals/AddTaskModal";
 import { setLoader, setTaskModal } from "../redux/slices/layoutSlice";
 
 const QuestionOne = () => {
   const classes = useStyles();
   const [category, setCategory] = useState("");
-  const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
     setCategory(event.target.value);

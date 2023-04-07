@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 import clsx from "clsx";
 import CssBaseline from "@material-ui/core/CssBaseline";
