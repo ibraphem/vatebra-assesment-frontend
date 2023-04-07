@@ -1,7 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import MaterialTable from "material-table";
 import Layout from "../components/Layout";
-
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -17,7 +16,6 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-import { users } from '../mock/user';
 import { useDispatch } from 'react-redux';
 import { fetchLists } from '../redux/slices/listSlice';
 import { useSelector } from 'react-redux';
