@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import Layout from "../components/Layout";
-import { filterCalendar, updateCalendar } from "../redux/slices/calendarSlice";
+import { fetchTasks, filterCalendar, updateCalendar } from "../redux/slices/calendarSlice";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -27,9 +27,12 @@ const QuestionOne = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.calendar.tasks);
 
+  console.log('tasks', tasks);
+
   useEffect(() => {
-    dispatch(updateCalendar());
-  }, [dispatch]);
+   dispatch(fetchTasks())
+  }, [dispatch])
+  
 
   return (
     <Layout>

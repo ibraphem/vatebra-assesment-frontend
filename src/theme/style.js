@@ -93,7 +93,7 @@ export const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
     loginRoot: {
-      height: "90vh",
+      height: "100vh",
       // backgroundRepeat: "no-repeat",
       // backgroundPosition: "center",
       // backgroundSize: "cover",

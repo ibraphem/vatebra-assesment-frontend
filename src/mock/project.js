@@ -1,32 +1,43 @@
 export const projectData = [
     {
-        id: 1,
         date: "2023-04-03",
-        todo: "Drilling",
+        title: "Drilling",
         category: "pending"
     },
     {
-        id: 1,
         date: "2023-04-03",
-        todo: "Dredging",
+        title: "Dredging",
         category: "done"
     },
     {
-        id: 1,
         date: "2023-04-08",
-        todo: "Digging",
-        category: "failed"
-    },
-    {
-        id: 1,
-        date: "2023-04-10",
-        todo: "Plastering",
+        title: "Digging",
         category: "todo"
     },
     {
-        id: 1,
+        date: "2023-04-09",
+        title: "Piping",
+        category: "done"
+    },
+    {
+        date: "2023-04-10",
+        title: "Plastering",
+        category: "done"
+    },
+    {
         date: "2023-04-15",
-        todo: "Welding",
-        category: "failed"
+        title: "Welding",
+        category: "pending"
+    },
+    {
+        date: "2023-04-15",
+        title: "Fencing",
+        category: "pending"
+    },
+    
+    {
+        date: "2023-05-02",
+        title: "Baricading",
+        category: "Pending"
     },
 ]
