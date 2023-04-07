@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import MaterialTable from "material-table";
 import Layout from "../components/Layout";
 
@@ -18,6 +18,10 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import { users } from '../mock/user';
+import { useDispatch } from 'react-redux';
+import { fetchLists } from '../redux/slices/listSlice';
+import { useSelector } from 'react-redux';
+import { setLoader } from '../redux/slices/layoutSlice';
 
 const QuestionFour = () => {
     const tableIcons = {
@@ -40,6 +44,26 @@ const QuestionFour = () => {
         ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
       };
 
+      const dispatch = useDispatch()
+      const loading = useSelector((state) => state.list.loading);
+      const lists = useSelector((state) => state.list.lists);
+
+      const lists2 = lists.map(o => ({ ...o }));
+
+
+      useEffect(() => {
+      dispatch(fetchLists())
+      }, [dispatch])
+
+      useEffect(() => {
+        if (lists?.length < 1 && loading) {
+          dispatch(setLoader(true));
+        } else {
+          dispatch(setLoader(false));
+        }
+      }, [dispatch, lists, loading]);
+      
+
   return (
     <Layout>
       <MaterialTable
@@ -52,7 +76,7 @@ const QuestionFour = () => {
           { title: "Age", field: "age" },
          
         ]}
-        data={users}
+        data={lists2}
       />
     </Layout>
   );

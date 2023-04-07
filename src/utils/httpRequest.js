@@ -3,7 +3,6 @@ import storeInit from "../redux/store"
 
 const httpRequest = async (url, method = 'get', body = null, others) => {
     const token = storeInit.store.getState()?.user?.user?.token 
-    console.log(token);
    
     try {
         const response = await axios({

@@ -34,7 +34,7 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "../redux/slices/userSlice";
 
 const Layout = ({ children }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 1768px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   console.log('isMobile', isMobile);
 
