@@ -19,6 +19,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
+  useMediaQuery,
 } from "@material-ui/core";
 import { menu } from "../mock/menu";
 import { useStyles } from "../theme/style";
@@ -33,30 +34,33 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "../redux/slices/userSlice";
 
 const Layout = ({ children }) => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+
+  console.log('isMobile', isMobile);
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(!isMobile ? false : true);
 
   const user = useSelector((state) => state.user?.user);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open2 = Boolean(anchorEl);
 
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 768) {
-        // adjust the screen size threshold as needed
-        setOpen(false);
-      } else {
-        setOpen(true);
-      }
-    }
+  // useEffect(() => {
+  //   function handleResize() {
+  //     if (window.innerWidth < 768) {
+  //       setOpen(false);
+  //     } else {
+  //       setOpen(true);
+  //     }
+  //   }
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   const signOut = () => {
     dispatch(removeUser());
