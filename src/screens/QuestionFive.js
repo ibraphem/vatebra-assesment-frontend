@@ -65,7 +65,7 @@ const QuestionFive = () => {
                   </strong>
                 </AlertTitle>
                 <p style={{ fontSize: 11 }}>
-                  The token generated from this auth will be used to
+                  The token this auth will
                   authenticate api calls for Question 1, 2 & 4.
                 </p>
               </Alert>
