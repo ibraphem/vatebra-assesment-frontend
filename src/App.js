@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Question4 from "./screens/Question4";
+import QuestionFour from "./screens/QuestionFour";
 import QuestionFive from "./screens/QuestionFive";
 import QuestionOne from "./screens/QuestionOne";
 import QuestionThree from "./screens/QuestionThree";
@@ -16,7 +16,7 @@ const App = () => {
           <Route exact path="/question1" element={<QuestionOne />} />
           <Route exact path="/question2" element={<QuestionTwo />} />
           <Route exact path="/question3" element={<QuestionThree />} />
-          <Route exact path="/question4" element={<Question4 />} />
+          <Route exact path="/question4" element={<QuestionFour />} />
         </Routes>
       </BrowserRouter>
     </>

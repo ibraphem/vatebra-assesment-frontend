@@ -19,7 +19,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import { users } from '../mock/user';
 
-const Question4 = () => {
+const QuestionFour = () => {
     const tableIcons = {
         Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
         Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -58,4 +58,4 @@ const Question4 = () => {
   );
 };
 
-export default Question4;
+export default QuestionFour;
