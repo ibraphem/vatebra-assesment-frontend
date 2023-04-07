@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import Layout from "../components/Layout";
-import { fetchTasks, filterCalendar, updateCalendar } from "../redux/slices/calendarSlice";
+import { fetchTasks, filterCalendar } from "../redux/slices/calendarSlice";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
