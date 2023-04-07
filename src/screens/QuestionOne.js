@@ -13,6 +13,7 @@ import { Button, Grid, Modal } from "@material-ui/core";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import AddIcon from "@material-ui/icons/Add";
 import AddTaskModal from "../components/modals/AddTaskModal";
+import { setLoader, setTaskModal } from "../redux/slices/layoutSlice";
 
 const QuestionOne = () => {
   const classes = useStyles();
@@ -25,18 +26,32 @@ const QuestionOne = () => {
   };
 
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.calendar.loading);
   const tasks = useSelector((state) => state.calendar.tasks);
 
-  console.log('tasks', tasks);
+  
 
   useEffect(() => {
-   dispatch(fetchTasks())
-  }, [dispatch])
-  
+    dispatch(fetchTasks());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (tasks?.length < 1 && loading) {
+      dispatch(setLoader(true));
+    } else {
+      dispatch(setLoader(false));
+    }
+  }, [dispatch, tasks, loading]);
 
   return (
     <Layout>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 20 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: 20,
+        }}
+      >
         <Grid item xs={12} sm={6}>
           <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label" style={{ fontSize: 12 }}>
@@ -49,7 +64,7 @@ const QuestionOne = () => {
               onChange={handleChange}
               // variant="outlined"
             >
-              <MenuItem value="all"> 
+              <MenuItem value="all">
                 <FiberManualRecordIcon color="primary" /> All
               </MenuItem>
               <MenuItem value="done">
@@ -75,7 +90,12 @@ const QuestionOne = () => {
             justifyContent: "flex-end",
           }}
         >
-          <Button onClick={() => setOpen(true)} variant="contained" color="secondary" startIcon={<AddIcon />}>
+          <Button
+            onClick={() => dispatch(setTaskModal(true))}
+            variant="contained"
+            color="secondary"
+            startIcon={<AddIcon />}
+          >
             Add
           </Button>
         </Grid>
@@ -96,15 +116,6 @@ const QuestionOne = () => {
           timeZone="local"
         />
       </div>
-
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        <AddTaskModal/>
-      </Modal>
     </Layout>
   );
 };

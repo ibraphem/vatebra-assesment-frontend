@@ -1,18 +1,29 @@
-import {createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    open: true,
-}
+export const layoutSlice = createSlice({
+  name: "layout",
+  initialState: {
+    loader: {
+      status: false,
+    },
+    taskModal: {
+      status: false,
+    },
+  },
 
-const layoutSlice = createSlice({
-    name: 'layout',
-    initialState,
-    reducers: {
-        toggleLayout: (state, {payload}) => {
-            state.open = payload
-        },
-    }
-})
+  reducers: {
+    setLoader: (state, { payload }) => {
+      state.loader = {
+        status: payload
+      };
+    },
+    setTaskModal: (state, { payload }) => {
+      state.taskModal = {
+        status: payload
+      };
+    },
+  },
+});
 
-export default layoutSlice.reducer
-export const {toggleLayout} = layoutSlice.actions
+export const {setLoader, setTaskModal } = layoutSlice.actions;
+export default layoutSlice.reducer;
