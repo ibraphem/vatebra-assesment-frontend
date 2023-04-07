@@ -16,7 +16,7 @@ import combinedSlices from "./slices";
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: []
+  whitelist: ['user']
 };
 
 const persistedSlices = persistReducer(persistConfig, combinedSlices);

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URL } from "../../config/settings";
+import {BASE_URL}  from "../../config/settings";
 import httpRequest from "../../utils/httpRequest";
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
   export const signin = createAsyncThunk(
     "user/signin",
     async (arg) => {
-      return httpRequest(`${BASE_URL}/user/signin`, 'post', arg.payload);
+      return httpRequest(`${BASE_URL}/user/signin`, 'post', arg);
     }
   );
 
@@ -26,7 +26,7 @@ const initialState = {
       });
       builder.addCase(signin.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload?.data?.user;
+        state.user = action.payload?.data;
         state.error = action.payload?.status === false ? action?.payload?.message : "";
       });
       builder.addCase(signin.rejected, (state, action) => {

@@ -27,8 +27,6 @@ const QuestionOne = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.calendar.tasks);
 
-  console.log("tasks", tasks);
-
   useEffect(() => {
     dispatch(updateCalendar());
   }, [dispatch]);
